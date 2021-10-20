@@ -1,0 +1,34 @@
+<%- include('parts/header') %> <% var error%>
+
+<section class="mt-4">
+	<div class="container">
+		<h1 class="text-center">Kirish</h1>
+		<div class="row mt-4 justify-content-center">
+			<div class="col-12 col-lg-6">
+				<% if(error) {%>
+				<div class="alert alert-danger"><%= error%></div>
+				<% } %>
+				<form method="POST">
+					<input
+						type="email"
+						class="form-control form-control-lg my-3"
+						placeholder="Emailingiz"
+						name="email"
+						required
+					/>
+					<input
+						type="password"
+						class="form-control form-control-lg my-3"
+						placeholder="Parolingiz"
+						name="password"
+						required
+					/>
+
+					<button class="btn w-100 btn-primary btn-lg">Kirish</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+<%- include('parts/footer') %>

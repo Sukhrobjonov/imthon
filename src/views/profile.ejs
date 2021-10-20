@@ -1,0 +1,42 @@
+<%- include('parts/header') %> <% var isOwnProfile %>
+
+<section class="m-4 p-4">
+    <div class="container">
+        <h1 class="text-center">
+            <%= profile.user_name %>ning profili <% if(isOwnProfile) {%>
+            <a href="/users/sessions">Sessiyalar</a>
+            <% } %>
+        </h1>
+
+        <div class="row mt-4">
+            <% for(let ads of user_ads) {%>
+            <div class="col-lg-4 col-md-6">
+                <div class="card text-center" style="flex-grow: 1">
+                    <img
+                        src="/public/uploads/<%= ads.user_ads_photos[0]%>"
+                        class="card-img-top"
+                        style="
+                            height: 200px;
+                            width: 200px;
+                            object-fit: cover;
+                            margin: 0 auto;
+                        "
+                        alt="..."
+                    />
+                    <div class="card-body">
+                        <a
+                            href="/ads/<%= ads.user_ads_slug%>"
+                            class="btn btn-primary m-0 p-2"
+                            ><h5 class="card-title p-0 m-0">
+                                <%= ads.user_ads_title%>
+                            </h5></a
+                        >
+                    </div>
+                </div>
+            </div>
+            <%} %>
+        </div>
+    </div>
+</section>
+
+<%- include('parts/footer') %>
